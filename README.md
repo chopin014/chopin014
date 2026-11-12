@@ -29,8 +29,6 @@ We build the AI assistant, the automation or the internal system your business i
 
 **Download:** [Aether for Linux and Windows](https://aetherspace.im) ([source](https://github.com/chopin014/Aether)) &nbsp;·&nbsp; [Lowlat Desktop for Arch](https://github.com/chopin014/lowlat-desktop/releases/latest) &nbsp;·&nbsp; [Hourglass](https://github.com/chopin014/hourglass-screen-time/releases/latest) &nbsp;·&nbsp; [X Brief](https://github.com/chopin014/x-brief/releases/latest)
 
-<sub>Op. numbers follow the order the works were started, like a composer's catalogue.</sub>
-
 <br>
 
 ## Build with me
