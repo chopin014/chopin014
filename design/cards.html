@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Profile plates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Schibsted+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+  /* Every plate is a daguerreotype in its case: a silvered dark plate,
+     a copper hairline mat, and windows framed like a brass mat.
+     Copper is UNTD's own colour (#C3946A). */
+  :root {
+    --plate-hi: #1e1f22;
+    --plate: #131416;
+    --plate-lo: #0b0c0d;
+    --silver: #ebe8e1;
+    --body: #b7b3ab;
+    --muted: #807c75;
+    --copper: #c3946a;
+    --copper-line: rgba(195, 148, 106, .42);
+    --copper-faint: rgba(195, 148, 106, .16);
+    --display: "Bodoni Moda", serif;
+    --sans: "Schibsted Grotesk", sans-serif;
+    --mono: "Spline Sans Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #2a2a2a; padding: 40px; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+
+  .plate {
+    position: relative; overflow: hidden; border-radius: 22px; color: var(--silver);
+    background:
+      linear-gradient(112deg, transparent 30%, rgba(255,255,255,.028) 46%, transparent 62%),
+      radial-gradient(130% 100% at 16% 0%, var(--plate-hi) 0%, var(--plate) 48%, var(--plate-lo) 100%);
+  }
+  /* the case mat */
+  .plate::after {
+    content: ""; position: absolute; inset: 11px; border-radius: 13px; pointer-events: none;
+    border: 1px solid var(--copper-faint);
+  }
+  .window {
+    position: relative; overflow: hidden; border-radius: 10px; background: #08090a;
+    box-shadow: 0 0 0 1px var(--copper-line), 0 0 0 6px var(--plate-lo), 0 0 0 7px var(--copper-faint), 0 18px 40px rgba(0,0,0,.45);
+  }
+  .window img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .op { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--copper); letter-spacing: .01em; }
+  .name { font-family: var(--display); font-weight: 500; letter-spacing: -.012em; line-height: 1; color: var(--silver); }
+  .desc { color: var(--body); line-height: 1.5; }
+  .facts { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .01em; }
+  .facts b { font-weight: 400; color: var(--copper); opacity: .7; padding: 0 .45em; }
+
+  /* ---------- header ---------- */
+  #header { width: 880px; height: 300px; display: grid; place-items: center; text-align: center; }
+  #header .inner { display: flex; flex-direction: column; align-items: center; }
+  #header h1 { font-family: var(--display); font-weight: 400; font-size: 128px; letter-spacing: -.025em; line-height: .9; }
+  #header .rule { width: 56px; height: 1px; background: var(--copper); opacity: .7; margin: 40px 0 20px; }
+  #header .role { font-size: 19px; color: var(--silver); font-weight: 500; letter-spacing: -.005em; }
+  #header .role em { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--copper); font-size: 21px; }
+  #header .line { margin-top: 8px; font-size: 16px; color: var(--body); }
+
+  /* ---------- UNTD ---------- */
+  #untd { width: 880px; height: 478px; padding: 44px 46px 0; }
+  #untd .top { display: flex; justify-content: space-between; align-items: center; }
+  #untd .top img { height: 36px; }
+  #untd .top .op { font-size: 20px; }
+  #untd .lede { margin-top: 22px; font-size: 18px; color: var(--silver); line-height: 1.45; max-width: 700px; }
+  #untd .lede span { color: var(--body); }
+  #untd .brands { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  #untd .window { height: 160px; }
+  #untd .window img { object-position: top center; }
+  #untd .label { margin-top: 18px; font-weight: 600; font-size: 15px; }
+  #untd .sub { margin-top: 3px; font-size: 13px; color: var(--body); line-height: 1.4; }
+  #untd .url { margin-top: 8px; }
+
+  /* ---------- Aether ---------- */
+  #aether { width: 880px; height: 400px; display: grid; grid-template-columns: 330px 1fr; gap: 40px; padding: 46px 46px 46px 50px; align-items: center; }
+  #aether .name { font-size: 70px; margin: 14px 0 18px; }
+  #aether .desc { font-size: 16px; }
+  #aether .facts { margin-top: 22px; line-height: 1.7; }
+  #aether .window { height: 280px; }
+
+  /* ---------- small cards ---------- */
+  .small { width: 432px; height: 432px; padding: 30px 30px 0; }
+  .small .window { height: 186px; }
+  .small .meta { padding: 26px 4px 0; }
+  .small .name { font-size: 38px; margin: 8px 0 12px; }
+  .small .desc { font-size: 14.5px; }
+  .small .facts { margin-top: 14px; }
+
+  /* Lowlat: the real approval dialog text, from crates/daemon/src/main.rs */
+  .desktop { position: absolute; inset: 0; background: radial-gradient(120% 120% at 80% 100%, #2b2f3a, #15171c 60%); display: grid; place-items: center; }
+  .dialog { width: 300px; background: #2e2e32; border-radius: 12px; padding: 16px 16px 12px; box-shadow: 0 10px 30px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.06); font-family: "Cantarell", var(--sans); }
+  .dialog h3 { font-size: 12.5px; font-weight: 600; color: #f2f2f2; text-align: center; }
+  .dialog p { margin-top: 8px; font-size: 10.5px; line-height: 1.45; color: #c9c9cd; text-align: center; }
+  .dialog .btns { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .dialog .btns span { font-size: 11px; font-weight: 600; text-align: center; padding: 7px 0; border-radius: 7px; background: #3d3d42; color: #eee; }
+  .dialog .btns span.ok { background: #3584e4; color: #fff; }
+
+  /* X Brief: an edition, with labels from extension/content.js */
+  .edition { position: absolute; inset: 0; background: #000; padding: 18px 22px; display: flex; flex-direction: column; }
+  .edition .hd { display: flex; justify-content: space-between; align-items: baseline; }
+  .edition .hd strong { font-size: 15px; color: #e7e9ea; font-weight: 600; }
+  .edition .hd span { font-family: var(--mono); font-size: 10.5px; color: #71767b; }
+  .post { margin-top: 12px; display: grid; grid-template-columns: 26px 1fr; gap: 10px; }
+  .post i { width: 26px; height: 26px; border-radius: 50%; background: #2f3336; }
+  .post div { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+  .post b { height: 7px; border-radius: 4px; background: #2f3336; }
+  .edition .end { margin-top: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2f3336; padding-top: 12px; }
+  .edition .end span { font-size: 11.5px; color: #71767b; }
+  .edition .end em { font-style: normal; font-size: 11.5px; font-weight: 600; color: #0f1419; background: #eff3f4; padding: 6px 13px; border-radius: 999px; }
+
+  /* mini-docker: the real clone() call from main.c */
+  .code { position: absolute; inset: 0; background: #0d0e10; font-family: var(--mono); font-size: 12px; line-height: 1.75; color: #c8c4bc; }
+  .code .tab { font-size: 10.5px; color: var(--muted); padding: 9px 16px; border-bottom: 1px solid #1d1e21; }
+  .code pre { padding: 16px 18px; font-family: inherit; white-space: pre; }
+  .code .k { color: #d2a679; }
+  .code .c { color: #8fb3c9; }
+  .code .f { color: #ebe8e1; }
+  .code .n { color: #55524d; }
+</style>
+</head>
+<body>
+
+<section class="plate" id="header">
+  <div class="inner">
+    <h1>chopin</h1>
+    <div class="rule"></div>
+    <p class="role">Co-founder and CEO of UNTD<em>.</em></p>
+    <p class="line">I make software people use: AI for businesses, and open source apps for Linux and the browser.</p>
+  </div>
+</section>
+
+<section class="plate" id="untd">
+  <div class="top">
+    <img src="img/untd-lockup.svg" alt="UNTD.">
+    <span class="op">the company</span>
+  </div>
+  <p class="lede">Custom AI, automation and software, built around the way a business already runs. <span>Three brands, one team.</span></p>
+  <div class="brands">
+    <div>
+      <div class="window"><img src="img/untd.png" alt=""></div>
+      <p class="label">UNTD.</p>
+      <p class="sub">AI assistants, automations and systems for your operation</p>
+      <p class="facts url">untdcorp.org</p>
+    </div>
+    <div>
+      <div class="window"><img src="img/studio.png" alt=""></div>
+      <p class="label">UNTD Studio</p>
+      <p class="sub">On-brand images and posts, from one sentence</p>
+      <p class="facts url">untdstudio.com</p>
+    </div>
+    <div>
+      <div class="window"><img src="img/iris.png" alt=""></div>
+      <p class="label">Iris</p>
+      <p class="sub">Brand identity, design, motion and video</p>
+      <p class="facts url">untd-iris.vercel.app</p>
+    </div>
+  </div>
+</section>
+
+<section class="plate" id="aether">
+  <div>
+    <span class="op">Op. 3</span>
+    <h2 class="name">Aether</h2>
+    <p class="desc">Communities, direct messages and drop-in voice on Matrix, in a layout Discord users already know.</p>
+    <p class="facts">Linux<b>·</b>Windows<b>·</b>v0.1.13<b>·</b>AGPL-3.0<br>Built on Element<b>·</b>136 merged PRs in 2026</p>
+  </div>
+  <div class="window"><img src="img/aether.png" alt=""></div>
+</section>
+
+<section class="plate small" id="lowlat">
+  <div class="window"><div class="desktop">
+    <div class="dialog">
+      <h3>Lowlat — Connection request</h3>
+      <p>Rafael’s laptop wants to connect to your desktop. Allow them to see your screen, hear audio, and use their permitted input devices for this connection?</p>
+      <div class="btns"><span>Reject</span><span class="ok">Allow once</span></div>
+    </div>
+  </div></div>
+  <div class="meta">
+    <span class="op">Op. 2</span>
+    <h2 class="name">Lowlat Desktop</h2>
+    <p class="desc">Share your Linux desktop with anyone on the regular Parsec client. Every connection asks you first.</p>
+    <p class="facts">Rust<b>·</b>Arch Linux<b>·</b>v0.1.0 preview<b>·</b>MIT</p>
+  </div>
+</section>
+
+<section class="plate small" id="hourglass">
+  <div class="window"><img src="img/hourglass.png" alt="" style="object-position: 0 14.2%"></div>
+  <div class="meta">
+    <span class="op">Op. 5</span>
+    <h2 class="name">Hourglass</h2>
+    <p class="desc">Screen Time for Firefox, Zen and LibreWolf. Limits, schedules and reports that never leave your device.</p>
+    <p class="facts">WebExtension<b>·</b>v1.1.0<b>·</b>MIT</p>
+  </div>
+</section>
+
+<section class="plate small" id="xbrief">
+  <div class="window"><div class="edition">
+    <div class="hd"><strong>Evening edition</strong><span>18:00 · 20 posts · 10 min</span></div>
+    <div class="post"><i></i><div><b style="width:38%"></b><b style="width:92%"></b><b style="width:70%"></b></div></div>
+    <div class="post"><i></i><div><b style="width:30%"></b><b style="width:84%"></b></div></div>
+    <div class="end"><span>20 of 20 read</span><em>Close edition</em></div>
+  </div></div>
+  <div class="meta">
+    <span class="op">Op. 4</span>
+    <h2 class="name">X Brief</h2>
+    <p class="desc">Turns X’s endless For you feed into two short editions a day. When the edition ends, so does the feed.</p>
+    <p class="facts">Firefox<b>·</b>Zen<b>·</b>v0.1.2</p>
+  </div>
+</section>
+
+<section class="plate small" id="minidocker">
+  <div class="window"><div class="code">
+    <div class="tab">main.c</div>
+<pre><span class="n">// a new process in its own namespaces</span>
+<span class="k">pid_t</span> <span class="f">child_pid</span> = <span class="f">clone</span>(child_fn, stack_top,
+    <span class="c">CLONE_NEWUTS</span> | <span class="c">CLONE_NEWPID</span> |
+    <span class="c">CLONE_NEWNS</span>  | <span class="c">CLONE_NEWUSER</span> |
+    <span class="c">SIGCHLD</span>, <span class="k">NULL</span>);</pre>
+  </div></div>
+  <div class="meta">
+    <span class="op">Op. 1</span>
+    <h2 class="name">mini<span style="font-family:var(--sans);font-weight:300;margin:0 .03em">-</span>docker</h2>
+    <p class="desc">A container runtime in 118 lines of C, written to see what Docker does underneath.</p>
+    <p class="facts">C<b>·</b>Linux namespaces<b>·</b>Alpine rootfs</p>
+  </div>
+</section>
+
+</body>
+</html>
