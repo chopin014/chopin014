@@ -1,4 +1,4 @@
-<img src="assets/header.9d9edc7b.png" alt="chopin. Co-founder and CEO of UNTD. I make software people use: AI for businesses, and open source apps for Linux and the browser." width="100%">
+<img src="assets/header.8d909145.png" alt="chopin. I study the apps people love, then build the ones they're missing." width="100%">
 
 <p align="center">
   <a href="#work-with-untd"><b>Work with UNTD</b></a> &nbsp;·&nbsp;
@@ -10,7 +10,7 @@
 
 ## Work with UNTD
 
-<a href="https://untdcorp.org/en/"><img src="assets/untd.4bda0543.png" alt="UNTD. Custom AI, automation and software, built around the way a business already runs. Three brands: UNTD., UNTD Studio and Iris." width="100%"></a>
+<a href="https://untdcorp.org/en/"><img src="assets/untd.6a893859.png" alt="UNTD. Custom AI, automation and software, built around the way a business already runs. Three brands: UNTD., UNTD Studio and Iris." width="100%"></a>
 
 We build the AI assistant, the automation or the internal system your business is missing, shaped around how it already works. Every project starts with a free **Operations X-Ray**: about 90 minutes, online or in person, and you leave knowing where your operation loses time and sales.
 
@@ -20,12 +20,12 @@ We build the AI assistant, the automation or the internal system your business i
 
 ## Apps you can use today
 
-<a href="https://aetherspace.im"><img src="assets/aether.bfa43f9d.png" alt="Aether: communities, direct messages and drop-in voice on Matrix, in a layout Discord users already know." width="100%"></a>
+<a href="https://aetherspace.im"><img src="assets/aether.fabb4590.png" alt="Aether: communities, direct messages and drop-in voice on Matrix, in a layout Discord users already know." width="100%"></a>
 
-<a href="https://github.com/chopin014/lowlat-desktop"><img src="assets/lowlat.c054d3ad.png" alt="Lowlat Desktop: share your Linux desktop with anyone on the regular Parsec client. Every connection asks you first." width="49%"></a>
-<a href="https://github.com/chopin014/hourglass-screen-time"><img src="assets/hourglass.5341fc10.png" alt="Hourglass: Screen Time for Firefox, Zen and LibreWolf." width="49%"></a>
-<a href="https://github.com/chopin014/x-brief"><img src="assets/xbrief.b321a7e6.png" alt="X Brief: turns X's endless feed into two short editions a day." width="49%"></a>
-<a href="https://github.com/chopin014/mini-docker"><img src="assets/minidocker.5f26143f.png" alt="mini-docker: a container runtime in 118 lines of C." width="49%"></a>
+<a href="https://github.com/chopin014/lowlat-desktop"><img src="assets/lowlat.52dd7e8f.png" alt="Lowlat Desktop: share your Linux desktop with anyone on the regular Parsec client. Every connection asks you first." width="49%"></a>
+<a href="https://github.com/chopin014/hourglass-screen-time"><img src="assets/hourglass.fe64bd18.png" alt="Hourglass: Screen Time for Firefox, Zen and LibreWolf." width="49%"></a>
+<a href="https://github.com/chopin014/x-brief"><img src="assets/xbrief.f9cca67a.png" alt="X Brief: turns X's endless feed into two short editions a day." width="49%"></a>
+<a href="https://github.com/chopin014/mini-docker"><img src="assets/minidocker.f26488f2.png" alt="mini-docker: a container runtime in 118 lines of C." width="49%"></a>
 
 **Download:** [Aether for Linux and Windows](https://aetherspace.im) ([source](https://github.com/chopin014/Aether)) &nbsp;·&nbsp; [Lowlat Desktop for Arch](https://github.com/chopin014/lowlat-desktop/releases/latest) &nbsp;·&nbsp; [Hourglass](https://github.com/chopin014/hourglass-screen-time/releases/latest) &nbsp;·&nbsp; [X Brief](https://github.com/chopin014/x-brief/releases/latest)
 
