@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Profile plates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Schibsted+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=block" rel="stylesheet">
 <style>
   /* Every plate is a daguerreotype in its case: a silvered dark plate,
      a copper hairline mat, and windows framed like a brass mat.
@@ -19,7 +19,7 @@
     --copper: #c3946a;
     --copper-line: rgba(195, 148, 106, .42);
     --copper-faint: rgba(195, 148, 106, .16);
-    --display: "Bodoni Moda", serif;
+    --display: "Newsreader", serif;
     --sans: "Schibsted Grotesk", sans-serif;
     --mono: "Spline Sans Mono", monospace;
   }
@@ -43,8 +43,8 @@
   }
   .window img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-  .op { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--copper); letter-spacing: .01em; }
-  .name { font-family: var(--display); font-weight: 500; letter-spacing: -.012em; line-height: 1; color: var(--silver); }
+  .op { font-family: var(--display); font-style: italic; font-size: 21px; color: var(--copper); letter-spacing: .01em; }
+  .name { font-family: var(--display); font-weight: 500; letter-spacing: -.018em; line-height: 1; color: var(--silver); }
   .desc { color: var(--body); line-height: 1.5; }
   .facts { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .01em; }
   .facts b { font-weight: 400; color: var(--copper); opacity: .7; padding: 0 .45em; }
@@ -52,7 +52,7 @@
   /* ---------- header ---------- */
   #header { width: 880px; height: 300px; display: grid; place-items: center; text-align: center; }
   #header .inner { display: flex; flex-direction: column; align-items: center; }
-  #header h1 { font-family: var(--display); font-weight: 400; font-size: 128px; letter-spacing: -.025em; line-height: .9; }
+  #header h1 { font-family: var(--display); font-weight: 400; font-size: 124px; letter-spacing: -.03em; line-height: .9; }
   #header .rule { width: 56px; height: 1px; background: var(--copper); opacity: .7; margin: 40px 0 20px; }
   #header .role { font-size: 19px; color: var(--silver); font-weight: 500; letter-spacing: -.005em; }
   #header .role em { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--copper); font-size: 21px; }
@@ -153,7 +153,7 @@
       <div class="window"><img src="img/iris.png" alt=""></div>
       <p class="label">Iris</p>
       <p class="sub">Brand identity, design, motion and video</p>
-      <p class="facts url">untd-iris.vercel.app</p>
+      <p class="facts url">untdiris.com</p>
     </div>
   </div>
 </section>
@@ -163,7 +163,7 @@
     <span class="op">Op. 3</span>
     <h2 class="name">Aether</h2>
     <p class="desc">Communities, direct messages and drop-in voice on Matrix, in a layout Discord users already know.</p>
-    <p class="facts">Linux<b>·</b>Windows<b>·</b>v0.1.13<b>·</b>AGPL-3.0<br>Built on Element<b>·</b>136 merged PRs in 2026</p>
+    <p class="facts">Linux<b>·</b>Windows<b>·</b>v0.1.13<b>·</b>AGPL-3.0<br>Built on Element<b>·</b>136 merged PRs in 2026<br><span style="color:var(--copper);opacity:.85">aetherspace.im</span></p>
   </div>
   <div class="window"><img src="img/aether.png" alt=""></div>
 </section>
@@ -220,7 +220,7 @@
   </div></div>
   <div class="meta">
     <span class="op">Op. 1</span>
-    <h2 class="name">mini<span style="font-family:var(--sans);font-weight:300;margin:0 .03em">-</span>docker</h2>
+    <h2 class="name">mini-docker</h2>
     <p class="desc">A container runtime in 118 lines of C, written to see what Docker does underneath.</p>
     <p class="facts">C<b>·</b>Linux namespaces<b>·</b>Alpine rootfs</p>
   </div>
